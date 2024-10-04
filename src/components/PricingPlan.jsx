@@ -1,35 +1,36 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaCheck, FaCoins } from 'react-icons/fa';
 
-const PricingPlan = ({ name, price, features, isPopular }) => {
+const PricingPlan = ({ name, coins, price, features, isPopular, onPurchase }) => {
   return (
     <motion.div
       whileHover={{ scale: 1.05, y: -10 }}
-      className={`bg-gradient-to-br from-blue-100 to-purple-200 rounded-xl p-6 shadow-lg ${
-        isPopular ? 'border-2 border-blue-400' : ''
+      className={`bg-white rounded-2xl p-8 shadow-xl ${
+        isPopular ? 'border-4 border-blue-500' : 'border border-gray-200'
       }`}
     >
-      {isPopular && (
-        <div className="text-blue-600 font-semibold mb-2">Most Popular</div>
-      )}
-      <h3 className="text-2xl font-bold text-purple-600 mb-2">{name}</h3>
-      <p className="text-4xl font-bold text-gray-800 mb-4">
-        ${price}
-        <span className="text-gray-600 text-base">/month</span>
+      
+      <h3 className="text-2xl font-bold mb-4 text-gray-800">{name}</h3>
+      <p className="text-5xl font-bold mb-6 text-blue-600 flex items-center justify-center">
+        <FaCoins className="mr-2 text-yellow-500" /> {coins}
       </p>
-      <ul className="text-gray-700 mb-6">
+      <p className="text-xl text-gray-600 mb-8">${price}</p>
+      <ul className="mb-8 space-y-3">
         {features.map((feature, index) => (
-          <li key={index} className="mb-2 flex items-center">
-            <span className="text-blue-500 mr-2">✓</span> {feature}
+          <li key={index} className="flex items-center text-gray-700">
+            <FaCheck className="w-5 h-5 mr-3 text-green-500" />
+            {feature}
           </li>
         ))}
       </ul>
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="w-full bg-gradient-to-r from-blue-400 to-purple-500 text-white font-bold py-2 px-4 rounded-full transition duration-300"
+        className="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-full transition duration-300 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+        onClick={onPurchase}
       >
-        Choose Plan
+        Purchase
       </motion.button>
     </motion.div>
   );
