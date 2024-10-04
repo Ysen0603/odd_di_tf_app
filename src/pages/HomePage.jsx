@@ -138,7 +138,7 @@ function HomePage() {
         <p className="mb-4">Vous avez acheté avec succès {purchasedCoins} coins.</p>
         <button
           onClick={() => setModalIsOpen(false)}
-          className="bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700"
+          className="bg-blue-800 text-white font-bold py-2 px-4 rounded hover:bg-blue-700"
         >
           Fermer
         </button>
