@@ -133,8 +133,8 @@ function Chat({ selectedUser }) {
   );
 
   return (
-    <div className="flex flex-col h-full bg-blue-50">
-      <div className="bg-gradient-to-r from-blue-400 to-purple-400 shadow-lg z-10">
+    <div className="flex flex-col h-full bg-white">
+      <div className="bg-gradient-to-r from-black via-yellow-700 to-yellow-900 shadow-lg z-10 p-1">
         <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex items-center">
           <img
             src={`http://localhost:8000${selectedUser.profile_picture}` || 'https://via.placeholder.com/40'}
@@ -160,8 +160,8 @@ function Chat({ selectedUser }) {
             <div
               className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
                 message.isCurrentUser
-                  ? 'bg-blue-400 text-white'
-                  : 'bg-white text-gray-800'
+                  ? 'bg-yellow-800 text-white'
+                  : 'bg-black text-gray-100'
               } shadow-md`}
             >
               {message.content}

@@ -49,15 +49,15 @@ const ProfilePage = ({ user, setUser }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-100"
+      className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-t from-zinc-950 via-neutral-800 to-slate-200"
     >
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="bg-white rounded-2xl shadow-2xl overflow-hidden"
+          className="bg-white bg-opacity-80 rounded-2xl shadow-2xl overflow-hidden"
         >
-          <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-8">
+          <div className="bg-gradient-to-r from-black to-yellow-600 p-8">
             <h1 className="text-4xl font-bold text-white text-center">User Profile</h1>
           </div>
           {user ? (
@@ -70,9 +70,9 @@ const ProfilePage = ({ user, setUser }) => {
                   <img
                     src={previewUrl || (user.profile_picture ? `http://localhost:8000${user.profile_picture}` : 'https://via.placeholder.com/150')}
                     alt="Profile"
-                    className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
+                    className="w-32 h-32 rounded-full object-cover border-4 border-black shadow-lg"
                   />
-                  <label htmlFor="profile-picture" className="absolute bottom-0 right-0 bg-blue-500 text-white rounded-full p-2 cursor-pointer">
+                  <label htmlFor="profile-picture" className="absolute bottom-0 right-0 bg-yellow-800 text-white rounded-full p-2 cursor-pointer">
                     <FaCamera />
                   </label>
                 </motion.div>
@@ -96,7 +96,7 @@ const ProfilePage = ({ user, setUser }) => {
                 {file && (
                   <motion.button
                     type="submit"
-                    className="w-full flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300"
+                    className="w-full flex items-center justify-center px-4 py-2 bg-black text-white rounded-md hover:bg-yellow-700 transition-colors duration-300"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >

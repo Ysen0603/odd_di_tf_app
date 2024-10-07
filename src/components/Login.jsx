@@ -66,7 +66,7 @@ const Login = ({ setToken, setUser }) => {
   
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-t from-zinc-950 via-neutral-800 to-slate-200">
       <div className="bg-white p-8 rounded-xl shadow-2xl w-96 transform hover:scale-105 transition-transform duration-300">
         <h2 className="text-3xl font-extrabold mb-6 text-center text-gray-800">Welcome Back</h2>
         <form onSubmit={handleSubmit} className="space-y-6">

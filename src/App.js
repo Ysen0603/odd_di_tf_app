@@ -98,7 +98,7 @@ function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 text-white"
+            className="flex flex-col min-h-screen text-white"
         >
             <Header user={user} onLogout={handleLogout} />
             <main className="flex-grow">

@@ -52,7 +52,7 @@ const ContactPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 py-12 px-4 sm:px-6 lg:px-8"
+            className="min-h-screen flex items-center justify-center bg-gradient-to-t from-zinc-950 via-neutral-800 to-slate-200 py-12 px-4 sm:px-6 lg:px-8"
         >
             <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-xl shadow-2xl">
                 <motion.div
@@ -131,7 +131,7 @@ const ContactPage = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             type="submit"
-                            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-900 hover:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         >
                             Envoyer
                         </motion.button>

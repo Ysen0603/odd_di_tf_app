@@ -42,14 +42,14 @@ function ChatPage() {
         .catch(error => console.error('Error fetching users:', error));
   }, [currentUserId]);
   return (
-      <div className="flex h-screen bg-gradient-to-br from-blue-100 to-purple-100">
-        <div className="w-1/3 bg-white shadow-lg overflow-hidden">
-          <h2 className="text-2xl font-bold p-6 bg-gradient-to-r from-blue-400 to-purple-400 text-white">WhatsChat</h2>
+      <div className="flex h-screen bg-gradient-to-t from-zinc-950 via-neutral-800 to-slate-200">
+        <div className="w-1/3 bg-gray-200 shadow-lg overflow-hidden">
+          <h2 className="text-2xl font-bold p-6 bg-gradient-to-r from-black via-yellow-700 to-yellow-900">WhatsChat</h2>
           <ul className="divide-y divide-gray-200">
             {users.map(user => (
               <li
                 key={user.id}
-                className={`p-4 hover:bg-blue-50 cursor-pointer transition duration-300 ease-in-out ${selectedUser?.id === user.id ? 'bg-blue-100' : ''}`}
+                className={`p-4 bg-black hover:bg-orange-950 cursor-pointer transition duration-300 ease-in-out ${selectedUser?.id === user.id ? 'bg-black bg-opacity-80' : ''}`}
                 onClick={() => setSelectedUser(user)}
               >
                 <div className="flex items-center space-x-4">
@@ -57,13 +57,13 @@ function ChatPage() {
                     <img
                       src={`http://localhost:8000${user.profile_picture}` || 'https://via.placeholder.com/40'}
                       alt={user.username}
-                      className="w-12 h-12 rounded-full object-cover border-2 border-blue-400"
+                    className="w-12 h-12 rounded-full object-cover border-2 border-yellow-700"
                     />
                     <div className={`absolute bottom-0 right-0 w-3 h-3 rounded-full ${user.is_active ? 'bg-green-400' : 'bg-red-400'}`}></div>
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-gray-900">{user.username}</p>
-                    <p className="text-xs text-gray-500">{user.is_active ? 'Online' : 'Offline'}</p>
+                    <p className="text-sm font-bold text-white">{user.username}</p>
+                    <p className="text-xs text-white">{user.is_active ? 'Online' : 'Offline'}</p>
                   </div>
                 </div>
               </li>
@@ -74,8 +74,8 @@ function ChatPage() {
           {selectedUser ? (
             <Chat selectedUser={selectedUser} />
           ) : (
-            <div className="flex-1 flex items-center justify-center bg-blue-50">
-              <p className="text-2xl text-blue-400 animate-pulse">Select a user to initiate communication</p>
+            <div className="flex-1 flex items-center justify-center bg-white">
+              <p className="text-2xl text-black animate-pulse">Select a user to initiate communication</p>
             </div>
           )}
         </div>
