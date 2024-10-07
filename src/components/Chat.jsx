@@ -183,12 +183,12 @@ function Chat({ selectedUser }) {
             type="text"
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
-            className="flex-1 min-w-0 block w-full px-4 py-3 bg-gray-100 text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+            className="flex-1 min-w-0 block w-full px-4 py-3 bg-gray-100 text-gray-800 placeholder-gray-400 rounded-full"
             placeholder="Type your message..."
           />
           <button
             type="submit"
-            className="inline-flex items-center px-4 py-3 border border-transparent text-sm font-medium text-white bg-gradient-to-r from-blue-400 to-purple-400 hover:from-blue-500 hover:to-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="inline-flex items-center px-4 py-3 border border-transparent text-sm font-medium text-white bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
             <FaPaperPlane className="h-5 w-5" />
           </button>

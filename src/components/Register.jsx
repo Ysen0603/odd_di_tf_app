@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-import { FaUser, FaEnvelope, FaLock, FaUserPlus } from 'react-icons/fa';
+import {FaUserPlus } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const Register = ({ setToken, setUser }) => {
   const [username, setUsername] = useState('');
@@ -58,59 +59,109 @@ const Register = ({ setToken, setUser }) => {
   
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-t from-zinc-950 via-neutral-800 to-slate-200">
-      <div className="bg-white p-8 rounded-xl shadow-2xl w-96 transform hover:scale-105 transition-transform duration-300">
-        <h2 className="text-3xl font-extrabold mb-6 text-center text-gray-800">Create Account</h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="relative">
-            <FaUser className="absolute top-3 left-3 text-gray-400" />
-            <input
-              type="text"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="pl-10 text-black w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Username"
-              required
-            />
-            {errors.username && <p className="text-red-500 text-xs mt-1">{errors.username}</p>}
+    <motion.div 
+        initial={{ x: -1000 }}
+        animate={{ x: 0 }}
+        transition={{ type: "spring", duration: 2, bounce: 0.4 }}
+        className="min-h-screen flex bg-black">
+      {/* Left Panel - Form */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
+        <div className="w-full max-w-md space-y-8 relative">
+          <div className="absolute -top-24 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-yellow-800 rounded-full flex items-center justify-center">
+            <FaUserPlus className="text-white text-2xl" />
           </div>
-          <div className="relative">
-            <FaEnvelope className="absolute top-3 left-3 text-gray-400" />
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="pl-10 text-black w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Email"
-              required
-            />
-            {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+          
+          <div className="bg-black border-2 border-yellow-800 p-8 rounded-3xl shadow-2xl">
+            <h2 className="text-3xl font-bold text-center text-white mb-10">Create Account</h2>
+            
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-white text-sm font-semibold ml-2">Username</label>
+                <div className="relative group">
+                  <input
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="w-full bg-transparent border-b-2 border-yellow-800 px-4 py-2 text-white focus:outline-none focus:border-white transition-colors"
+                    placeholder="Choose a username"
+                    required
+                  />
+                </div>
+                {errors.username && <p className="text-white text-xs mt-1">{errors.username}</p>}
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-white text-sm font-semibold ml-2">Email</label>
+                <div className="relative group">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full bg-transparent border-b-2 border-yellow-800 px-4 py-2 text-white focus:outline-none focus:border-white transition-colors"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+                {errors.email && <p className="text-white text-xs mt-1">{errors.email}</p>}
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-white text-sm font-semibold ml-2">Password</label>
+                <div className="relative group">
+                  <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-full bg-transparent border-b-2 border-yellow-800 px-4 py-2 text-white focus:outline-none focus:border-white transition-colors"
+                    placeholder="Create a password"
+                    required
+                  />
+                </div>
+                {errors.password && <p className="text-white text-xs mt-1">{errors.password}</p>}
+              </div>
+
+              {errors.general && (
+                <div className="bg-black border border-yellow-800 p-3 rounded-lg">
+                  <p className="text-white text-sm text-center">{errors.general}</p>
+                </div>
+              )}
+
+              <button
+                type="submit"
+                className="group relative w-full py-3 mt-8 overflow-hidden rounded-lg bg-yellow-800 text-white font-semibold hover:bg-white hover:text-black transition-all duration-300"
+              >
+                <span className="relative z-10 flex items-center justify-center">
+                  <FaUserPlus className="mr-2" />
+                  Create Account
+                </span>
+              </button>
+            </form>
+
+            <div className="mt-8 text-center">
+              <p className="text-white">
+                Already have an account? {' '}
+                <Link 
+                  to="/login" 
+                  className="text-yellow-800 hover:text-white transition-colors duration-300 font-semibold"
+                >
+                  Sign In
+                </Link>
+              </p>
+            </div>
           </div>
-          <div className="relative">
-            <FaLock className="absolute top-3 left-3 text-gray-400" />
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="pl-10 text-black w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Password"
-              required
-            />
-            {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password}</p>}
-          </div>
-          {errors.general && <p className="text-red-500 text-sm text-center">{errors.general}</p>}
-          <button type="submit" className="w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300">
-            <FaUserPlus className="mr-2" /> Sign Up
-          </button>
-        </form>
-        <p className="mt-6 text-center text-gray-600">
-          Already have an account? <Link to="/login" className="text-blue-500 hover:text-blue-600 font-semibold">Sign In</Link>
-        </p>
+        </div>
       </div>
-    </div>
+
+      {/* Right Panel - Decorative */}
+      <div className="hidden lg:flex lg:w-1/2 bg-black items-center justify-center border-l border-yellow-800">
+        <div className="p-12 relative">
+          <div className="absolute top-0 left-0 w-32 h-32 border-t-2 border-l-2 border-yellow-800"></div>
+          <div className="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2 border-yellow-800"></div>
+          <h1 className="text-6xl font-bold text-white mb-4">Join Us</h1>
+          <p className="text-yellow-800 text-xl">Start your experience today</p>
+        </div>
+      </div>
+    </motion.div>
   );
 };
 
